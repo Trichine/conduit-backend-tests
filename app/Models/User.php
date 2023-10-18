@@ -16,6 +16,12 @@ class User extends Authenticatable implements JWTSubject
 
     protected $visible = ['username', 'email', 'bio', 'images'];
 
+    public static function create(array $data)
+    {
+        return static::query()->create($data);
+    }
+
+
     public function getRouteKeyName(): string
     {
         return 'username';
